@@ -19,17 +19,22 @@ class Ticket(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     # Current status of item
     status = models.CharField(max_length=1, choices=(
-        ('queued', 'queued'),
-        ('in-shop', 'in-shop'),
-        ('testing', 'testing'),
-        ('completed', 'completed')
+        ('q', 'queued'),
+        ('s', 'in-shop'),
+        ('t', 'testing'),
+        ('c', 'completed')
         ))
     # The model of the item
-    item_model = models.CharField(max_length=255)
+    item_model = models.CharField(max_length=255, blank=True)
     # The manufacture of the item
-    item_manufacture = models.CharField(max_length=255)
+    item_manufacture = models.CharField(max_length=255, blank=True)
+    # Type of item
+    item_type = models.CharField(max_length=255, blank=True)
     # The customer
     customer = models.ForeignKey(Customer)
+
+    def __unicode__(self):
+        return u"RO %s - %s %s %s" % (self.id, self.customer.first_name, self.item_type, self.item_manufacture)
 
     class Admin:
         pass
