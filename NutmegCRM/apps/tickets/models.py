@@ -1,7 +1,8 @@
 __author__ = 'justasic'
 from django.db import models
 from django.contrib.auth.models import User
-from apps.crm.models import Customer
+
+from NutmegCRM.apps.crm.models import Customer
 
 
 class Ticket(models.Model):
@@ -17,7 +18,12 @@ class Ticket(models.Model):
     # Date the ticket was filed
     date = models.DateTimeField(auto_now_add=True)
     # Current status of item
-    status = models.CharField(max_length=1, choices=('queued', 'in-shop', 'testing', 'completed'))
+    status = models.CharField(max_length=1, choices=(
+        ('queued', 'queued'),
+        ('in-shop', 'in-shop'),
+        ('testing', 'testing'),
+        ('completed', 'completed')
+        ))
     # The model of the item
     item_model = models.CharField(max_length=255)
     # The manufacture of the item

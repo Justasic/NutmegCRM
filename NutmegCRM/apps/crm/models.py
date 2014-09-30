@@ -14,8 +14,11 @@ class Customer(models.Model):
     # Customer's Contact information
     email = models.EmailField("email address")
 
+
+
     def get_full_name(self):
         return u"%s %s" % (self.first_name, self.last_name)
 
     class Admin:
         pass
+
