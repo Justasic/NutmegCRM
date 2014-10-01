@@ -5,6 +5,6 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns('',
     url(r'^$', views.index),
-    #url(r'^customer/[a-zA-Z0-9]+', views.customer)
+    url(r'^(?P<custid>\d+)(?P<lastname>[\-\W]+)/(?P<firstname>[\-\W]+)/', views.customer)
     #url(r'', '')
 )

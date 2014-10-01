@@ -9,6 +9,8 @@ class Customer(models.Model):
     """
     # Added date
     created = models.DateTimeField(auto_now_add=True)
+    # slugfield used in urls
+    slug = models.SlugField()
 
     # Customer's name
     first_name = models.CharField("first name", max_length=255)
