@@ -19,10 +19,10 @@ class Ticket(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     # Current status of item
     status = models.CharField(max_length=1, choices=(
-        ('q', 'queued'),
-        ('s', 'in-shop'),
-        ('t', 'testing'),
-        ('c', 'completed')
+        ('0', 'queued'),
+        ('1', 'in-shop'),
+        ('2', 'testing'),
+        ('3', 'completed')
         ))
     # The model of the item
     item_model = models.CharField(max_length=255, blank=True)
@@ -32,6 +32,8 @@ class Ticket(models.Model):
     item_type = models.CharField(max_length=255, blank=True)
     # The customer
     customer = models.ForeignKey(Customer)
+    # the item's location
+    location = models.CharField(max_length=255, blank=True)
 
     def __unicode__(self):
         return u"RO %s - %s %s %s" % (self.id, self.customer.first_name, self.item_type, self.item_manufacture)

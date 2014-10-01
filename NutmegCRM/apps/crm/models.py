@@ -16,8 +16,8 @@ class Customer(models.Model):
 
     # Customer's Contact information
     email = models.EmailField("email address", blank=True)
-    # phone = models.CharField("phone", max_length=25)
-
+    # I made the phone field required because we may need to call the customer.
+    phone = models.CharField("phone", max_length=25)
 
 
     def get_full_name(self):
