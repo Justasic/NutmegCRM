@@ -15,7 +15,7 @@ PORT = 8000
 sys.path.append("NutmegCRM")
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-########################################################################
+############################\############################################
 class Root(resource.Resource):
 
     def __init__(self, wsgi_resource):
@@ -42,7 +42,7 @@ class ThreadPoolService(service.Service):
 
 
 # Import our django stuff.
-from django.core.handlers.wsgi import WSGIHandler
+from django.core.wsgi import get_wsgi_application
 
 # Twisted Application Framework setup:
 application = service.Application('twisted-django')
@@ -56,7 +56,7 @@ multi = service.MultiService()
 pool = threadpool.ThreadPool()
 tps = ThreadPoolService(pool)
 tps.setServiceParent(multi)
-wresource = wsgi.WSGIResource(reactor, tps.pool, WSGIHandler())
+wresource = wsgi.WSGIResource(reactor, tps.pool, get_wsgi_application())
 root = Root(wresource)
 
 # Servce Django media files off of /media:
