@@ -6,37 +6,56 @@
 {% endblock %}
 
 {% block body %}
-
+    <article>
     <!-- Stats! -->
-    <dev class="stats">
-        <span id="totalcustomers">Total customers in system: {{ ctotal }}</span>
-        <span id="totalopentickets">Total tickets open: {{ ttotal }}</span>
-        <span id="totalqueuedtickets">Total tickets in queue: {{ qtotal }}</span>
-        <span id="totalticketstesting">Total tickets in testing: {{ testtotal }}</span>
-        <span id="totalcompletedtickets">Total tickets completed: {{ comptotal }}</span>
-    </dev>
+    <div id="infobox" class="box">
+        <h2>Statistics</h2>
+        <div id="totalcustomers">Total customers in system: {{ ctotal }}</div>
+        <div id="totalopentickets">Total tickets open: {{ ttotal }}</div>
+        <div id="totalqueuedtickets">Total tickets in queue: {{ qtotal }}</div>
+        <div id="totalticketstesting">Total tickets in testing: {{ testtotal }}</div>
+        <div id="totalcompletedtickets">Total tickets completed: {{ comptotal }}</div>
+    </div>
 
-    <table class="customerlist">
-    <tr>
-        <td>ID</td>
-        <td>First name</td>
-        <td>Last name</td>
-        <td>Phone</td>
-        <td>Email</td>
-        <td>Created</td>
-        <td></td>
-    </tr>
-    {% for c in customers %}
+    <div id="pkgbox" class="box">
+        <h2>Customer List</h2>
+        <pre>
+            <a href="#">ID</a>
+            <a href="#">First name</a>
+            <a href="#">Last name</a>
+            <a href="#">Phone</a>
+            <a href="#">Email</a>
+            <a href="#">Created</a>
+            <a href="#"></a>
+            <hr/>
+        </pre>
+
+        {% comment %}
+        <table class="customerlist">
         <tr>
-            <td>{{ c.id }}</td>
-            <td>{{ c.first_name }}</td>
-            <td>{{ c.last_name }}</td>
-            <td>555-555-5555</td>
-            <td>{{ c.email }}</td>
-            <td>{{ c.created|date }}</td>
-            <td><a href="#">View tickets</a></td>
+            <td>ID</td>
+            <td>First name</td>
+            <td>Last name</td>
+            <td>Phone</td>
+            <td>Email</td>
+            <td>Created</td>
+            <td></td>
         </tr>
-    {% endfor %}
-    </table>
+        <hr></hr>
+        {% for c in customers %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.first_name }}</td>
+                <td>{{ c.last_name }}</td>
+                <td>555-555-5555</td>
+                <td>{{ c.email }}</td>
+                <td>{{ c.created|date }}</td>
+                <td><a href="#">View tickets</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+        {% endcomment %}
+    </div>
+    </article>
 
 {% endblock %}

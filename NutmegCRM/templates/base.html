@@ -1,6 +1,16 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}" type="text/css" />
+    <menu>
+        <ul id="nav">
+            <li class="home"><a href="#">Home</a></li>
+            <li class="invoices"><a href="#">Invoices</a></li>
+            <li class="customers"><a href="#">Customers</a></li>
+            <li class="items"><a href="#">Items</a></li>
+        </ul>
+    </menu>
 {% block head %}
 {% endblock %}
 </head>

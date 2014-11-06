@@ -1,0 +1,134 @@
+html {
+  border-top: 2px solid #0d9ce0;
+}
+
+body {
+  background-image: url('/static/img/bg.png');
+  background-repeat: repeat;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  text-shadow: 0 1px 4px rgba(150, 150, 150, 0.5);
+  color: #4d4d4f;
+  text-align: center;
+}
+
+a {
+  color: #0d9ce0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #787d88;
+  text-decoration: underline;
+}
+
+header {
+  height: 100px;
+  padding-bottom: 16px;
+  padding-top: 8px;
+}
+
+#logo h1 {
+  margin: 0;
+  padding: 0;
+  text-indent: -9999px;
+}
+
+menu ul {
+  font-size: 14px;
+  display: inline;
+  float: right;
+  list-style: none;
+  margin-top: -70px;
+}
+
+menu ul li{
+  float: left;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 8px;
+}
+
+menu ul#nav li a {
+  color: #4d4d4f;
+  text-decoration: none;
+}
+
+menu ul#nav li a:hover {
+  color: #787d88;
+  text-decoration: underline;
+}
+
+#nav .home {
+  background: url('../img/nav/home.png') no-repeat;
+  text-indent: 3px;
+}
+
+#nav .invoices {
+  background: url('../img/nav/arch.png') no-repeat;
+  text-indent: 2px;
+}
+
+#nav .customers {
+  background: url('../img/nav/community.png') no-repeat;
+  text-indent: 5px;
+}
+
+#nav .items {
+  background: url('../img/nav/wiki.png') no-repeat;
+  text-indent: 6px;
+}
+
+#nav .workshop {
+  background: url('../img/nav/workshop.png') no-repeat;
+  text-indent: 6px;
+}
+
+article {
+  width: 95%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.box {
+  background: rgb(255,255,255);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  border: 1px solid #d3d7cf;
+  padding: 0px 18px 3px 18px;
+}
+
+#sidebarbox {
+  margin: 2px 85% 2px 2px;
+}
+
+h2 {
+  font-size: 16px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+#infobox {
+    margin-left: 15%;
+}
+
+#pkgbox {
+  margin-top: 16px;
+  margin-left: 15%;
+}
+
+#pkgbox ul li {
+  list-style: none;
+}
+
+footer {
+  padding-top: 7px;
+  text-align: center;
+  font-size: 10px;
+  line-height: 6px;
+}
