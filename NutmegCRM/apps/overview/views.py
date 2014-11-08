@@ -21,3 +21,14 @@ def index(request):
     })
 
     return render_to_response('index.html', ctx)
+
+
+def dispatch(request):
+
+    tickets = Ticket.objects.all()
+
+    ctx = RequestContext(request, {
+        'tickets': tickets,
+    })
+
+    return render_to_response('dispatch.html', ctx)

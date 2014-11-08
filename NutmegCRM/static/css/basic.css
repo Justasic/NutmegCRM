@@ -1,3 +1,17 @@
+/* Taken from google style sheet somewhere */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
 html {
   border-top: 2px solid #0d9ce0;
 }
@@ -26,6 +40,11 @@ header {
   height: 100px;
   padding-bottom: 16px;
   padding-top: 8px;
+}
+
+#logo {
+  background: url('/static/img/logo.png') no-repeat;
+  height: 100px;
 }
 
 #logo h1 {
@@ -60,27 +79,31 @@ menu ul#nav li a:hover {
 }
 
 #nav .home {
-  background: url('../img/nav/home.png') no-repeat;
+  background: url('/static/img/Home.svg') no-repeat;
+  background-size: 16px 16px;
   text-indent: 3px;
 }
 
 #nav .invoices {
-  background: url('../img/nav/arch.png') no-repeat;
+  background: url('/static/img/invoice.svg') no-repeat;
+  background-size: 16px 16px;
   text-indent: 2px;
 }
 
 #nav .customers {
-  background: url('../img/nav/community.png') no-repeat;
+  background: url('/static/img/customers.svg') no-repeat;
+  background-size: 16px 16px;
   text-indent: 5px;
 }
 
 #nav .items {
-  background: url('../img/nav/wiki.png') no-repeat;
+  background: url('/static/img/clock.svg') no-repeat;
+  background-size: 16px 16px;
   text-indent: 6px;
 }
 
 #nav .workshop {
-  background: url('../img/nav/workshop.png') no-repeat;
+  /*background: url('../img/nav/workshop.png') no-repeat;*/
   text-indent: 6px;
 }
 
