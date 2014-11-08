@@ -14,8 +14,9 @@ urlpatterns = [
 
     # our various apps for the site.
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^tickets/', include(ticketurls)),
-    url(r'^customers/', include(crmurls)),
+    url(r'^tickets/', include(ticketurls,  namespace='tickets')),
+    url(r'^customers/', include(crmurls, namespace='customers')),
+    url(r'^dispatch/', 'NutmegCRM.apps.overview.views.dispatch', name='dispatch'),
     url(r'^accounts/$', authviews.login),
     url(r'^accounts/', include(authurls)),
 ]

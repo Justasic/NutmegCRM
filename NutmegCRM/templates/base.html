@@ -8,10 +8,10 @@
     </div>
     <menu>
         <ul id="nav">
-            <li class="home"><a href="#">Home</a></li>
-            <li class="invoices"><a href="#">Invoices</a></li>
-            <li class="customers"><a href="#">Customers</a></li>
-            <li class="items"><a href="#">Items</a></li>
+            <li class="home"><a href="/">Home</a></li>
+            <li class="invoices"><a href="{% url 'tickets:index' %}">Invoices</a></li>
+            <li class="customers"><a href="{% url 'customers:index' %}">Customers</a></li>
+            <li class="items"><a href="{% url 'dispatch' %}">Items</a></li>
         </ul>
     </menu>
 {% block head %}

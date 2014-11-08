@@ -5,6 +5,7 @@ from django.template.context import RequestContext
 from NutmegCRM.apps.crm.models import Customer
 from NutmegCRM.apps.tickets.models import Ticket, Comment
 
+# Main landing page
 def index(request):
 
     customers = Customer.objects.all()
@@ -23,6 +24,8 @@ def index(request):
     return render_to_response('index.html', ctx)
 
 
+# Similar to the dispatch excel sheet used to know where items are located in
+# the business.
 def dispatch(request):
 
     tickets = Ticket.objects.all()
