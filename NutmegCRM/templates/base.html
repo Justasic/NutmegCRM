@@ -3,6 +3,11 @@
 <html>
 <head>
     <link rel="stylesheet" href="{% static 'css/basic.css' %}" type="text/css" />
+{% block head %}
+{% endblock %}
+</head>
+<body>
+<header>
     <div id="logo">
         <h1>Remembering Time</h1>
     </div>
@@ -14,10 +19,7 @@
             <li class="items"><a href="{% url 'dispatch' %}">Items</a></li>
         </ul>
     </menu>
-{% block head %}
-{% endblock %}
-</head>
-<body>
+</header>
 {% block body %}
 {% endblock %}
 </body>

@@ -19,16 +19,37 @@
 
     <div id="pkgbox" class="box">
         <h2>Customer List</h2>
+
+        <ul>
+            <li>ID</li>
+            <li>First Name</li>
+            <li>Last Name</li>
+            <li>Phone</li>
+            <li>Email</li>
+            <li>Created</li>
+            <li> </li>
+            <hr/>
+            {% for c in customners %}
+                <li>{{ c.id }}</li>
+                <li>{{ c.first_name }}</li>
+                <li>{{ c.last_name }}</li>
+                <li>{{ c.email }}</li>
+                <li>{{ c.phone }}</li>
+                <li>{{ c.created }}</li>
+                <li><a href="#">View Ticket</a></li>
+            {% endfor %}
+        </ul>
+
+    {% comment %}
         <pre>
-            <a href="#">ID</a>
-            <a href="#">First name</a>
-            <a href="#">Last name</a>
-            <a href="#">Phone</a>
-            <a href="#">Email</a>
-            <a href="#">Created</a>
-            <a href="#"></a>
+            <a href="#">ID</a> <a href="#">First name</a> <a href="#">Last name</a> <a href="#">Phone</a> <a href="#">Email</a> <a href="#">Created</a> <a href="#"></a>
+            <hr/>
+            {% for c in customers %}
+                {{ c.id }}
+            {% endfor %}
             <hr/>
         </pre>
+        {% endcomment %}
 
         {% comment %}
         <table class="customerlist">
