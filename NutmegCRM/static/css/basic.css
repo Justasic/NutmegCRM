@@ -142,6 +142,14 @@ h2 {
     float: left;
 }
 
+.linklist li {
+    margin-bottom: 0px;
+}
+
+.linklist {
+
+}
+
 #statisticsbox {
     margin-top: 15px;
 }

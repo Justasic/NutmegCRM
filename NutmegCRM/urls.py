@@ -9,8 +9,6 @@ from django.contrib.auth import views as authviews
 admin.autodiscover()
 
 urlpatterns = [
-    # Instant search
-    #url(r'^ajax_search/',include('ajax_search.urls')),
     # Index for the entire site
     url(r'^$', 'NutmegCRM.apps.overview.views.index', name='home'),
 
