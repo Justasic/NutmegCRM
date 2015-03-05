@@ -5,6 +5,31 @@
 
 {% block body %}
     <article>
+    <div id="pkgbox" class="box">
+        <h2>Customer List</h2>
 
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>Invoice #</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for c in customers %}
+                <tr>
+                    <th>{{ c.id }}</th>
+                    <th><a href="{% url 'tickets:ticket' c.id %}">{{ c.get_full_name }}</a></th>
+                    <th>{{ c.email }}</th>
+                    <th>{{ c.phone }}</th>
+                    <th>{{ c.created }}</th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
     </article>
 {% endblock %}

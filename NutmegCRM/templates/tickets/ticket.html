@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 
 {% block head %}
+    {# Use the ticket's __unicode__ function to just make the page title #}
+    <title>{{ ticket }}</title>
 {% endblock %}
 
 
 {% block body %}
+    <article>
+        <div class="box">
+            <h2>{{ customer }}</h2>
+
+            <span>customer</span>
+        </div>
+
     {{ customer }}
     {{ ticket }}
     {{ comments }}
+    </article>
 {% endblock %}

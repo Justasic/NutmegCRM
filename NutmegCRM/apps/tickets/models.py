@@ -36,7 +36,7 @@ class Ticket(models.Model):
     location = models.CharField(max_length=255, blank=True)
 
     def __unicode__(self):
-        return u"RO %s - %s %s %s" % (self.id, self.customer.first_name, self.item_type, self.item_manufacture)
+        return u"%s %s - RO# %s" % (self.customer.first_name, self.customer.last_name, self.id)
 
     class Admin:
         pass

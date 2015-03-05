@@ -18,14 +18,13 @@ def customer(request, custid, lastname, firstname):
         'customer': customer,
     })
 
-    return render_to_response('tickets/customer.html', ctx)
+    return render_to_response('crm/customer.html', ctx)
 
 # Display a ticket and it's comments!
-def ticket(request, custid, lastname, firstname, invoiceid):
+def ticket(request, invoiceid):
 
     # Get the customer's ticket and their information if we can, otherwise just 404.
-    customer = get_object_or_404(Customer, pk=custid, last_name=lastname, first_name=firstname)
-    ticket = get_object_or_404(Ticket, pk=invoiceid, customer=customer)
+    ticket = get_object_or_404(Ticket, pk=invoiceid)
 
     # Get the comments for the ticket as well
     comments = get_list_or_404(Comment, ticket=ticket)
@@ -33,7 +32,7 @@ def ticket(request, custid, lastname, firstname, invoiceid):
     # Create a template context and then let Django handle the rest in the templates! :D
     ctx = RequestContext(request, {
         'ticket': ticket,
-        'customer': customer,
+        'customer': ticket.customer,
         'comments': comments,
     })
 

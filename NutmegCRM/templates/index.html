@@ -7,75 +7,48 @@
 
 {% block body %}
     <article>
-    <!-- Stats! -->
-    <div id="infobox" class="box">
-        <h2>Statistics</h2>
-        <div id="totalcustomers">Total customers in system: {{ ctotal }}</div>
-        <div id="totalopentickets">Total tickets open: {{ ttotal }}</div>
-        <div id="totalqueuedtickets">Total tickets in queue: {{ qtotal }}</div>
-        <div id="totalticketstesting">Total tickets in testing: {{ testtotal }}</div>
-        <div id="totalcompletedtickets">Total tickets completed: {{ comptotal }}</div>
+    <!-- Quick links to parts of the site -->
+    <div class="sidebar">
+        <div id="quicklinks" class="box">
+            <h2>Links</h2>
+            <div id="createcustomer"><a href="#">Create a new customer</a></div>
+        </div>
+        <!-- Stats! -->
+        <div id="statisticsbox" class="box">
+            <h2>Statistics</h2>
+            <div id="totalcustomers">Total customers in system: {{ ctotal }}</div>
+            <div id="totalopentickets">Total tickets open: {{ ttotal }}</div>
+            <div id="totalqueuedtickets">Total tickets in queue: {{ qtotal }}</div>
+            <div id="totalticketstesting">Total tickets in testing: {{ testtotal }}</div>
+            <div id="totalcompletedtickets">Total tickets completed: {{ comptotal }}</div>
+        </div>
     </div>
 
     <div id="pkgbox" class="box">
         <h2>Customer List</h2>
 
-        <ul>
-            <li>ID</li>
-            <li>First Name</li>
-            <li>Last Name</li>
-            <li>Phone</li>
-            <li>Email</li>
-            <li>Created</li>
-            <li> </li>
-            <hr/>
-            {% for c in customners %}
-                <li>{{ c.id }}</li>
-                <li>{{ c.first_name }}</li>
-                <li>{{ c.last_name }}</li>
-                <li>{{ c.email }}</li>
-                <li>{{ c.phone }}</li>
-                <li>{{ c.created }}</li>
-                <li><a href="#">View Ticket</a></li>
-            {% endfor %}
-        </ul>
-
-    {% comment %}
-        <pre>
-            <a href="#">ID</a> <a href="#">First name</a> <a href="#">Last name</a> <a href="#">Phone</a> <a href="#">Email</a> <a href="#">Created</a> <a href="#"></a>
-            <hr/>
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>Invoice #</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+            <tbody>
             {% for c in customers %}
-                {{ c.id }}
+                <tr>
+                    <th>{{ c.id }}</th>
+                    <th><a href="{% url 'tickets:ticket' c.id %}">{{ c.get_full_name }}</a></th>
+                    <th>{{ c.email }}</th>
+                    <th>{{ c.phone }}</th>
+                    <th>{{ c.created }}</th>
+                </tr>
             {% endfor %}
-            <hr/>
-        </pre>
-        {% endcomment %}
-
-        {% comment %}
-        <table class="customerlist">
-        <tr>
-            <td>ID</td>
-            <td>First name</td>
-            <td>Last name</td>
-            <td>Phone</td>
-            <td>Email</td>
-            <td>Created</td>
-            <td></td>
-        </tr>
-        <hr></hr>
-        {% for c in customers %}
-            <tr>
-                <td>{{ c.id }}</td>
-                <td>{{ c.first_name }}</td>
-                <td>{{ c.last_name }}</td>
-                <td>555-555-5555</td>
-                <td>{{ c.email }}</td>
-                <td>{{ c.created|date }}</td>
-                <td><a href="#">View tickets</a></td>
-            </tr>
-        {% endfor %}
+            </tbody>
         </table>
-        {% endcomment %}
     </div>
     </article>
 
