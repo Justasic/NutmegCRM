@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from django.template.context import RequestContext
 from NutmegCRM.apps.crm.models import Customer
 from NutmegCRM.apps.tickets.models import Ticket, Comment
-from ajax_search.forms import SearchForm
 
 from NutmegCRM.apps.crm.models import Customer
 from NutmegCRM.apps.tickets.models import Ticket
@@ -23,7 +22,6 @@ def index(request):
         'qtotal': Ticket.objects.filter(status='0').count(), # Total tickets in queue
         'testtotal': Ticket.objects.filter(status='2').count(), # Total tickets which are in testing
         'comptotal': Ticket.objects.filter(status='3').count(), # Total tickets completed
-        'searchform': SearchForm(),
     })
 
     return render_to_response('index.html', ctx)

@@ -30,19 +30,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# AJAX Search options
-######################
-
-# Number of items to display for a search
-AJAX_SEARCH_LIMIT = 8
-
-# Search helper
-AJAX_SEARCH_HELPER = 'NutmegCRM.apps.overview.views.search_helper'
-
-# The search results page
-SEARCH_RESULT_TEMPLATE = 'search_results.html'
-
-
 # Application definition
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -54,7 +41,6 @@ INSTALLED_APPS = (
     'NutmegCRM.apps.crm',
     'NutmegCRM.apps.overview',
     'NutmegCRM.apps.tickets',
-    'ajax_search'
 )
 
 MIDDLEWARE_CLASSES = (

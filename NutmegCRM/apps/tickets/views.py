@@ -6,7 +6,10 @@ from NutmegCRM.apps.tickets.models import Ticket, Comment
 from django.template.context import RequestContext
 
 def index(request):
-    return HttpResponse('Hello world from tickets! :D')
+
+    ctx = RequestContext(request, {})
+    return render_to_response('tickets/index.html', ctx)
+
 
 def customer(request, custid, lastname, firstname):
 

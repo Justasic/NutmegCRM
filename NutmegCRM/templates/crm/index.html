@@ -5,8 +5,9 @@
 
 {% block body %}
     <article>
+
     <div class="box">
-        <h2>Item Inventory</h2>
+        <h2>Customer List</h2>
 
         <table class="u-full-width">
             <thead>
@@ -16,9 +17,6 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Created</th>
-                    <th>Item Type</th>
-                    <th>Item Description</th>
-                    <th>Item status</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,13 +27,11 @@
                     <th>{{ c.email }}</th>
                     <th>{{ c.phone }}</th>
                     <th>{{ c.created }}</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
+
     </article>
 {% endblock %}
