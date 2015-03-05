@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{% static 'css/skeleton.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/basic.css' %}" type="text/css" />
 {% block head %}
 {% endblock %}
@@ -16,7 +18,7 @@
             <li class="home"><a href="/">Home</a></li>
             <li class="invoices"><a href="{% url 'tickets:index' %}">Invoices</a></li>
             <li class="customers"><a href="{% url 'customers:index' %}">Customers</a></li>
-            <li class="items"><a href="{% url 'dispatch' %}">Items</a></li>
+            <li class="items"><a href="{% url 'dispatch' %}">Inventory</a></li>
         </ul>
     </menu>
 </header>
