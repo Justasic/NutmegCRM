@@ -10,19 +10,6 @@ def index(request):
     ctx = RequestContext(request, {})
     return render_to_response('tickets/index.html', ctx)
 
-
-def customer(request, custid, lastname, firstname):
-
-    customer = get_object_or_404(Customer, pk=custid, last_name=lastname, first_name=firstname)
-    tickets = get_list_or_404(Ticket, customer_id=customer.id)
-
-    ctx = RequestContext(request, {
-        'tickets': tickets,
-        'customer': customer,
-    })
-
-    return render_to_response('crm/customer.html', ctx)
-
 # Display a ticket and it's comments!
 def ticket(request, invoiceid):
 
@@ -30,7 +17,7 @@ def ticket(request, invoiceid):
     ticket = get_object_or_404(Ticket, pk=invoiceid)
 
     # Get the comments for the ticket as well
-    comments = get_list_or_404(Comment, ticket=ticket)
+    comments = Comment.objects.filter(ticket=ticket)
 
     # Create a template context and then let Django handle the rest in the templates! :D
     ctx = RequestContext(request, {
@@ -40,3 +27,7 @@ def ticket(request, invoiceid):
     })
 
     return render_to_response('tickets/ticket.html', ctx)
+
+
+def newticket(request):
+    pass

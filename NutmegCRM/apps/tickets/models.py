@@ -23,17 +23,29 @@ class Ticket(models.Model):
         ('1', 'in-shop'),
         ('2', 'testing'),
         ('3', 'completed')
-        ))
+        ), default='0')
+    # The priority of the ticket
+    priority = models.CharField(max_length=1, choices=(
+        ('0', 'Low'),
+        ('1', 'Normal'),
+        ('2', 'High'),
+        ('3', 'Critical'),
+    ), default='1')
     # The model of the item
     item_model = models.CharField(max_length=255, blank=True)
     # The manufacture of the item
     item_manufacture = models.CharField(max_length=255, blank=True)
+    # The serial number of the item
+    item_serial = models.CharField(max_length=255, blank=True)
     # Type of item
     item_type = models.CharField(max_length=255, blank=True)
     # The customer
     customer = models.ForeignKey(Customer)
     # the item's location
     location = models.CharField(max_length=255, blank=True)
+
+    def get_status(self):
+        return
 
     def __unicode__(self):
         return u"%s %s - RO# %s" % (self.customer.first_name, self.customer.last_name, self.id)

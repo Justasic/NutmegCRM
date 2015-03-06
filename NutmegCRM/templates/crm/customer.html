@@ -1,9 +1,64 @@
 {% extends 'base.html' %}
 
 {% block head %}
+    <title>{{ customer.get_full_name }} - Customer</title>
 {% endblock %}
 
 {% block body %}
-    {{ customer }}
-    {{ tickets }}
+    <article>
+
+    {% comment %}
+     So basically, the way this works is that we have two
+     major sections here. Our first major section is that
+     we have the Customer's information such as phone numbers,
+     addresses, name, etc.
+
+     The second major field is a basic list of all items they have
+     tickets on. This allows us to go to a customer's page and view
+     all items they have and they did in the past.
+    {% endcomment %}
+
+    <div id="customerinfo" class="box">
+        <h2>{{ customer.get_full_name }}</h2>
+
+        <ul>
+            <li><span>Created:</span> {{ customer.created|date }}</li>
+            <li><span>E-Mail:</span> {{ customer.email }}</li>
+            <li><span>Phone:</span> {{ customer.phone }}</li>
+        </ul>
+    </div>
+
+    <div id="customertickets" class="box">
+        <h2>All tickets for {{ customer.get_full_name }}</h2>
+
+        {% if tickets %}
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>Invoice #</th>
+                        <th>Created</th>
+                        <th>Item</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for t in tickets %}
+                    <tr>
+                        <th><a href="{% url 'tickets:ticket' t.id %}">{{ t.id }}</a></th>
+                        <th>{{ t.date|date }}</th>
+                        <th>{{ t.item_manufacture }} {{ t.item_model }} ({{ t.item_type }})</th>
+                        <th>{{ t.status }}</th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="centered">
+                <h6>There are no open tickets for this customer.</h6>
+                <a href="#">Create a new ticket</a>
+            </div>
+        {% endif %}
+    </div>
+
+    </article>
 {% endblock %}
