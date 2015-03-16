@@ -45,7 +45,16 @@ class Ticket(models.Model):
     location = models.CharField(max_length=255, blank=True)
 
     def get_status(self):
-        return
+        if self.status == '0': return "Queued"
+        elif self.status == '1': return "In-Shop"
+        elif self.status == '2': return "Testing"
+        elif self.status == '3': return "Completed"
+
+    def get_priority(self):
+        if self.priority == '0': return "Low"
+        elif self.priority == '1': return "Normal"
+        elif self.priority == '2': return "High"
+        elif self.priority == '3': return "Critical"
 
     def __unicode__(self):
         return u"%s %s - RO# %s" % (self.customer.first_name, self.customer.last_name, self.id)

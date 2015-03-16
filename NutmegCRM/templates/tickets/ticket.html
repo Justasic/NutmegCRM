@@ -11,11 +11,25 @@
         <div class="box">
             <h2>{{ customer }}</h2>
 
-            <span>customer</span>
+            <div>Status: {{ ticket.get_status }}</div>
+            <div>Priority: {{ ticket.get_priority }}</div>
+            <div>Item Description: {{ ticket.item_manufacture }} {{ ticket.item_model }} {{ ticket.item_serial }}</div>
+            <div>Type: {{ ticket.item_type }}</div>
+            <div>Location: {{ ticket.location }}</div>
+            <div></div>
+            <div></div>
+
         </div>
 
+        <div class="box">
+            <h2>Inventory Code</h2>
+            <image src="{% url 'tickets:QRCode' ticket.pk %}"></image>
+        </div>
+
+    {% comment %}
     {{ customer }}
     {{ ticket }}
     {{ comments }}
+    {% endcomment %}
     </article>
 {% endblock %}

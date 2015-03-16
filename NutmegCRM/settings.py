@@ -30,6 +30,9 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# this is our hostname we use for generating QR Codes.
+HOSTNAME = "0.0.0.0:8000"
+
 # Application definition
 INSTALLED_APPS = (
     'django.contrib.admin',

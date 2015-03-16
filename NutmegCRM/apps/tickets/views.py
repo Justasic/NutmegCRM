@@ -4,6 +4,9 @@ from django.http import HttpResponse
 from NutmegCRM.apps.crm.models import Customer
 from NutmegCRM.apps.tickets.models import Ticket, Comment
 from django.template.context import RequestContext
+from django.core.urlresolvers import reverse
+import qrencode as qr
+from django.conf import settings
 
 def index(request):
 
@@ -31,3 +34,14 @@ def ticket(request, invoiceid):
 
 def newticket(request):
     pass
+
+
+def QRCode(request, invoiceid):
+    # Generate our URL to put in the QR Code.
+    url = "http://" + settings.HOSTNAME + reverse('tickets:ticket', args=(invoiceid,))
+    image = qr.encode_scaled(url, 200)
+
+    # serialize to HTTP response
+    response = HttpResponse(content_type="image/png")
+    image[2].save(response, "PNG")
+    return response
